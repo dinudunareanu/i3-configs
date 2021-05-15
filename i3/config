@@ -28,7 +28,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 # set $refresh_i3status killall -SIGUSR1 i3status
@@ -116,7 +116,7 @@ set $ws2 "2:  "
 set $ws3 "3:  "
 set $ws4 "4:  "
 set $ws5 "5:  "
-set $ws6 "6"
+set $ws6 "6:  "
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -126,6 +126,7 @@ set $ws10 "10"
 assign [class="Google-chrome"] $ws2
 assign [class="Code"] $ws3
 for_window [class="Spotify"] move to workspace $ws5
+assign [class="Microsoft Teams - Preview"] $ws6
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -138,6 +139,10 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+
+#navigate workspaces next / previous
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -245,6 +250,9 @@ exec nitrogen --restore
 
 # Lock
 bindsym $mod+x exec betterlockscreen -l dimblur
+
+# Notifications
+exec_always dunst
 
 # Launch ranger
 bindsym $mod+Shift+f exec terminator  -e ranger
