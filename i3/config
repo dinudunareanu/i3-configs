@@ -122,6 +122,11 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# Assign workspaces
+assign [class="Google-chrome"] $ws2
+assign [class="Code"] $ws3
+for_window [class="Spotify"] move to workspace $ws5
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -194,7 +199,7 @@ set $tblack	#00000099
 client.focused		$acolor			$acolor			$textcolor		$acolor
 client.unfocused	$ibgcolor		$ibgcolor		$textcolor		$ibgcolor
 client.focused_inactive	$ibgcolor		$ibgcolor		$textcolor		$ibgcolor
-client.urgent		$ubgcolor		$ubgcolor		$textcolor		$ubgcolor
+client.urgent		$acolor			$acolor			$textcolor		$acolor
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
