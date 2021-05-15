@@ -243,3 +243,6 @@ bindsym $mod+x exec betterlockscreen -l dimblur
 
 # Launch ranger
 bindsym $mod+Shift+f exec terminator  -e ranger
+
+# Camera Shortcut
+bindsym $mod+c exec mpv av://v4l2:/dev/video0 --profile=low-latency --untimed
