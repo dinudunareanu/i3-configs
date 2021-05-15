@@ -213,7 +213,7 @@ bar {
 		#			border			background		text
 		focused_workspace	$tblack			$tblack			$acolor
 		inactive_workspace	$tblack			$tblack			$white
-		urgent_workspace	$ubgcolor		$ubgcolor		$textcolor
+		urgent_workspace	$acolor			$acolor			$black
 	}
 }
 
