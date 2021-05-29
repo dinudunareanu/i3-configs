@@ -249,16 +249,20 @@ exec nitrogen --restore
 # exec pa-applet
 
 # Lock
+# bindsym %mod+x exec -i3lock -c cfa872
 bindsym $mod+x exec betterlockscreen -l dimblur
 
 # Notifications
 exec_always dunst
 
 # Launch ranger
-bindsym $mod+Shift+f exec terminator  -e ranger
+bindsym $mod+Shift+f exec terminator -e ranger
 
 # Screenshot shortcut
-bindsym $mod+Shift+s exec scrot
+bindsym $mod+Shift+s exec scrot && dunstify "Screenshot taken!"
 
 # Camera Shortcut
 bindsym $mod+c exec mpv av://v4l2:/dev/video0 --profile=low-latency --untimed --vf=hflip
+
+# Calculator shortcut
+bindsym $mod+Ctrl+c exec terminator -e quich
