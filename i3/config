@@ -217,7 +217,7 @@ bar {
 
 	colors {
 		background $tblack
-		separator #282828
+		separator #fff
 
 		#			border			background		text
 		focused_workspace	$tblack			$tblack			$acolor
