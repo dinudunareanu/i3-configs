@@ -39,8 +39,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "light -A 10"
-bindsym XF86MonBrightnessDown exec "light -U 10"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -52,7 +52,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -sb '#cfa872' -fn 'Sans Regular-11.5' 
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Hack-10' 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -114,9 +114,9 @@ bindsym $mod+a focus parent
 set $ws1 "1:  "
 set $ws2 "2:  "
 set $ws3 "3:  "
-set $ws4 "4:  "
-set $ws5 "5:  "
-set $ws6 "6:  "
+set $ws4 "4:  "
+set $ws5 "5:  "
+set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -125,7 +125,6 @@ set $ws10 "10"
 # Assign workspaces
 assign [class="firefox"] $ws2
 assign [class="Code"] $ws3
-for_window [class="Spotify"] move to workspace $ws5
 assign [class="Microsoft Teams - Preview"] $ws6
 
 # switch to workspace
@@ -196,9 +195,9 @@ set $ibgcolor	#363636
 set $textcolor	#ffffff
 set $ubgcolor	#ff0000
 set $white	#ffffff
-set $acolor	#cfa872
+set $acolor	#005577
 set $black	#000000
-set $tblack	#00000099
+set $tblack	#2b2b28
 
 #			border			background		text			indicator
 client.focused		$acolor			$acolor			$textcolor		$acolor
@@ -210,14 +209,14 @@ client.urgent		$acolor			$acolor			$textcolor		$acolor
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	i3bar_command i3bar -t
+	i3bar_command i3bar
 	status_command i3blocks -c $HOME/.config/i3blocks/i3blocks.conf
 	position top
-	font pango: Roboto, FontAwesome 8.5
+	font pango: Hack, FontAwesome 8
 	strip_workspace_numbers yes
 
 	colors {
-		background #00000099
+		background $tblack
 		separator #282828
 
 		#			border			background		text
@@ -228,19 +227,19 @@ bar {
 }
 
 # Compositor
-exec_always picom
+# exec_always picom
 
 # Gaps
 gaps inner 7
 
-# No title 
+# No title
 new_window none
 
 # Borders
-for_window [class=".*"] border pixel 1.5
+for_window [class=".*"] border pixel 2.0
 
 # Wallpaper ( nitrogen )
-exec nitrogen --restore
+# exec nitrogen --restore
 
 # Start yabar
 # exec yabar
@@ -249,17 +248,17 @@ exec nitrogen --restore
 # exec pa-applet
 
 # Lock
-# bindsym %mod+x exec -i3lock -c cfa872
-bindsym $mod+x exec betterlockscreen -l dimblur
+# bindsym $mod+x exec i3lock -c 2b2b28
+bindsym $mod+x exec betterlockscreen -l
 
 # Notifications
-exec_always dunst
+# exec_always dunst
 
 # Launch ranger
 bindsym $mod+Shift+f exec terminator -e ranger
 
 # Screenshot shortcut
-bindsym $mod+Shift+s exec scrot && dunstify "Screenshot taken!"
+bindsym $mod+Shift+s exec scrot
 
 # Camera Shortcut
 bindsym $mod+c exec mpv av://v4l2:/dev/video0 --profile=low-latency --untimed --vf=hflip
