@@ -125,7 +125,7 @@ set $ws10 "10"
 # Assign workspaces
 assign [class="firefox"] $ws2
 assign [class="Code"] $ws3
-assign [class="Microsoft Teams - Preview"] $ws6
+assign [class="Microsoft Teams - Preview"] $ws5
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -197,7 +197,7 @@ set $ubgcolor	#ff0000
 set $white	#ffffff
 set $acolor	#005577
 set $black	#000000
-set $tblack	#2b2b28
+set $tblack	#1e1e1e
 
 #			border			background		text			indicator
 client.focused		$acolor			$acolor			$textcolor		$acolor
@@ -265,3 +265,6 @@ bindsym $mod+c exec mpv av://v4l2:/dev/video0 --profile=low-latency --untimed --
 
 # Calculator shortcut
 bindsym $mod+Ctrl+c exec terminator -e quich
+
+#Galculator floating mode
+for_window [class="Galculator" instance="galculator"] floating enable
