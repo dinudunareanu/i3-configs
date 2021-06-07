@@ -251,6 +251,9 @@ for_window [class=".*"] border pixel 2.0
 # bindsym $mod+x exec i3lock -c 2b2b28
 bindsym $mod+x exec betterlockscreen -l
 
+# Shutdown
+bindsym $mod+Shift+x exec shutdown now
+
 # Notifications
 # exec_always dunst
 
